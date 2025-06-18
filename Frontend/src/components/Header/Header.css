@@ -1,0 +1,177 @@
+.banner-container {
+  position: relative; /* Important! */
+  width: 100%;
+  overflow: hidden; /* Optional: hides anything outside */
+  display: flex;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 500px;
+  border-radius: 20px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  position: absolute; /* Now it will be positioned inside .banner-container */
+  top: 53%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: start;
+  border-radius: 10px;
+  width: 80%; /* Keeps the content aligned properly */
+  padding: 10px; /* Adds padding around the content */
+}
+
+.banner-headline {
+  color: white;
+  font-size: 55px;
+  text-align: start;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.banner-text {
+  color: white;
+  font-size: 18px; /* Default font size */
+  line-height: 1.5; /* For better readability */
+  max-width: 600px; /* Ensures text doesn't stretch too wide */
+}
+
+/* Button Style */
+.banner-btn {
+  width: 150px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  color: black;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(73, 85, 126, 0.4);
+  transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(73, 85, 126, 0.6);
+}
+
+/* Base Style (default for larger screens) */
+.banner-headline {
+  font-size: 60px;
+}
+
+.banner-text {
+  font-size: 18px;
+}
+
+/* Medium devices (tablets, 1024px and below) */
+@media (max-width: 1024px) {
+  .banner-headline {
+    font-size: 50px;
+  }
+
+  .banner-text {
+    font-size: 18px;
+  }
+
+  .banner-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Small tablets and large phones (up to 850px) */
+@media (max-width: 850px) {
+  .banner-headline {
+    font-size: 35px;
+  }
+
+  .banner-text {
+    font-size: 13px;
+    max-width: 400px; /* Keeps text readable */
+  }
+
+  .banner-content {
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Reduces the width for smaller screens */
+  }
+}
+
+/* Phones (up to 600px) */
+@media (max-width: 630px) {
+  .banner-headline {
+    font-size: 25px;
+  }
+
+  .banner-text {
+    font-size: 8px;
+    max-width: 300px;
+    text-align: start;
+  }
+
+  .banner-btn {
+    width: 120px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .banner-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjusts the width on smaller screens */
+  }
+}
+
+@media (max-width: 499px) {
+  .banner-headline {
+    font-size: 34px;
+  }
+
+  .banner-text {
+    display: none;
+  }
+
+  .banner-content {
+    top: 55%;
+    left: 50%;
+    gap: 30px;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjusts the width on smaller screens */
+  }
+  .banner-btn {
+    width: 100px;
+    font-size: 14px;
+    padding: 7px 10px;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  .banner-headline {
+    font-size: 20px;
+  }
+  .banner-content {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 290px) {
+  .banner-headline {
+    font-size: 17px;
+  }
+}

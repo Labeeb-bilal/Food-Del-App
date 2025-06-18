@@ -1,0 +1,65 @@
+{
+    "menu": [
+      {
+        "name": "Bruschetta",
+        "description": "Grilled bread topped with fresh tomatoes, garlic, basil, and olive oil.",
+        "image": "https://images.pexels.com/photos/761854/pexels-photo-761854.jpeg"
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "Crisp romaine lettuce tossed with Caesar dressing, croutons, and Parmesan cheese.",
+        "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+      },
+      {
+        "name": "Margherita Pizza",
+        "description": "Classic pizza with fresh mozzarella, tomatoes, and basil.",
+        "image": "https://images.pexels.com/photos/4109120/pexels-photo-4109120.jpeg"
+      },
+      {
+        "name": "Spaghetti Carbonara",
+        "description": "Traditional Italian pasta with eggs, cheese, pancetta, and pepper.",
+        "image": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg"
+      },
+      {
+        "name": "Chocolate Lava Cake",
+        "description": "Warm chocolate cake with a gooey molten center.",
+        "image": "https://images.pexels.com/photos/4109993/pexels-photo-4109993.jpeg"
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Layered dessert with coffee-soaked ladyfingers, mascarpone, and cocoa.",
+        "image": "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg"
+      },
+      {
+        "name": "Cappuccino",
+        "description": "Espresso with steamed milk and a layer of foam.",
+        "image": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Freshly squeezed orange juice served chilled.",
+        "image": "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Freshly squeezed orange juice served chilled.",
+        "image": "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Freshly squeezed orange juice served chilled.",
+        "image": "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Freshly squeezed orange juice served chilled.",
+        "image": "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Freshly squeezed orange juice served chilled.",
+        "image": "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+      }
+    ]
+  }
+  

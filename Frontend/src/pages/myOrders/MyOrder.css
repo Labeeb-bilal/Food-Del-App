@@ -1,0 +1,100 @@
+.my-orders {
+    padding: 40px 20px;
+    background-color:whitesmoke;
+    border-radius: 20px;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .my-orders h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #2e7d32;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .containrr {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .my-order-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 90%;
+    height: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 6px solid #66bb6a;
+  }
+  
+  .my-order-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+  
+  #Orderbag {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .order-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .order-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    color: #37474f;
+  }
+  
+  .item {
+    background: #e8f5e9;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  
+  .order-details p {
+    font-size: 14px;
+    color: #455a64;
+    margin: 0;
+  }
+  
+  .order-details p strong {
+    color: #1b5e20;
+  }
+  
+  .track-btn {
+    margin-top: 6px;
+    align-self: flex-start;
+    background: linear-gradient(to right, #66bb6a, #43a047);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .track-btn:hover {
+    background: linear-gradient(to right, #43a047, #2e7d32);
+  }
+  

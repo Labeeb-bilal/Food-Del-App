@@ -1,0 +1,68 @@
+.menu-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: start; /* Align to the start of the container */
+  }
+  
+  .headline {
+    font-size: 20px;
+  }
+  
+  .menu-list {
+    display: flex; /* Align items in a row */
+    flex-direction: row; /* Row-based layout */
+    overflow-x: auto; /* Enable horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 20px; /* Space between items */
+    padding-bottom: 10px;
+    width: 100%; /* Ensure it takes full width */
+    max-width: 100%; /* Prevent exceeding the parent container's width */
+  }
+  
+  .menu-list::-webkit-scrollbar {
+    display: block; /* Make scrollbar visible for debugging */
+    height: 6px; /* Set height of scrollbar */
+  }
+  
+  .menu-item {
+    display: flex; /* Align image and text vertically */
+    flex-direction: column; /* Stack the image and name vertically */
+    align-items: center; /* Center the items */
+    gap: 10px; /* Space between image and text */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+  
+  .menu-img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 50%; /* Make image round */
+  }
+  
+  .menu-name {
+    font-size: 18px;
+    text-align: center; /* Center the text */
+    margin-top: 5px;
+  }
+  
+  hr {
+    border: 0;
+    border-top: 1px solid black;
+    width: 100%;
+  }
+  
+  @media (max-width: 499px) {
+    .menu-text {
+      font-size: 13px;
+    }
+    .menu-img{
+      height: 100px;
+      width: 100px;
+    }
+    .menu-name{
+    font-size: 14px;
+    }
+  }

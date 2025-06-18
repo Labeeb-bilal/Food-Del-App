@@ -1,0 +1,89 @@
+.order-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .order-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .order-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 24px;
+    transition: 0.3s;
+  }
+  
+  .order-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .order-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+  
+  .badge.paid {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .badge.pending {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .status-dropdown {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  
+  .order-body,
+  .order-items {
+    margin-top: 10px;
+  }
+  
+  .order-items .item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #ccc;
+  }
+  
+  .no-orders {
+    text-align: center;
+    margin-top: 40px;
+    color: #999;
+    font-size: 1.1rem;
+  }
+  

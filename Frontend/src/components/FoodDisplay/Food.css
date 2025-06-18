@@ -1,0 +1,89 @@
+.food-container {
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  
+  .food-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: start;
+  }
+  
+  .food-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px;
+  }
+  
+  .food-card {
+    position: relative; /* Important! To allow absolute positioning inside */
+    width: 230px;
+    height: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    margin: 20px;
+  }
+  
+  .food-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .food-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+  }
+  
+  .food-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+  
+  .food-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .food-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .food-rating {
+    font-size: 18px;
+    color: #ffa500; /* Star color */
+  }
+  
+  .food-description {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .food-price {
+    font-weight: bold;
+    font-size: 18px;
+    color:tomato;
+  }
+  
+  .AddToCart {
+    position: absolute;
+    top: 140px; /* Adjust this value for vertical placement */
+    right: 10px; /* Adjust for horizontal placement */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }

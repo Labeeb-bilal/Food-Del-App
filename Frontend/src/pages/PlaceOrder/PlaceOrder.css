@@ -1,0 +1,28 @@
+.container-DelPage{
+ padding: 20px;
+ display: flex;
+ justify-content: space-between;
+ align-items: end;
+ flex-direction: row;  
+ margin-bottom: 100px;
+}
+
+.details-box{
+   height: auto;
+   width: 500px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.multi-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+.details-box input{
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

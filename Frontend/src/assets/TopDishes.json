@@ -1,0 +1,85 @@
+{
+    "dishes": [
+      {
+        "id": 1,
+        "name": "Spaghetti Carbonara",
+        "description": "Classic Italian pasta made with eggs, cheese, pancetta, and pepper.",
+        "image": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg",
+        "price": 350,
+        "quantity": 0
+      },
+      {
+        "id": 2,
+        "name": "Margherita Pizza",
+        "description": "Delicious pizza topped with fresh mozzarella, tomatoes, and basil.",
+        "image": "https://images.pexels.com/photos/4109120/pexels-photo-4109120.jpeg",
+        "price": 450,
+        "quantity": 0
+      },
+      {
+        "id": 3,
+        "name": "Bruschetta",
+        "description": "Grilled bread topped with tomatoes, garlic, basil, and olive oil.",
+        "image": "https://images.pexels.com/photos/761854/pexels-photo-761854.jpeg",
+        "price": 220,
+        "quantity": 0
+      },
+      {
+        "id": 4,
+        "name": "Chocolate Lava Cake",
+        "description": "Warm, gooey chocolate cake with a molten center.",
+        "image": "https://images.pexels.com/photos/4109993/pexels-photo-4109993.jpeg",
+        "price": 280,
+        "quantity": 0
+      },
+      {
+        "id": 5,
+        "name": "Tiramisu",
+        "description": "Classic Italian dessert with coffee-soaked ladyfingers, mascarpone, and cocoa.",
+        "image": "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg",
+        "price": 300,
+        "quantity": 0
+      },
+      {
+        "id": 6,
+        "name": "Cappuccino",
+        "description": "Espresso with steamed milk and a frothy top.",
+        "image": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
+        "price": 180,
+        "quantity": 0
+      },
+      {
+        "id": 7,
+        "name": "Lasagna",
+        "description": "Layers of pasta, meat sauce, béchamel sauce, and cheese, baked to perfection.",
+        "image": "https://images.pexels.com/photos/1678481/pexels-photo-1678481.jpeg",
+        "price": 400,
+        "quantity": 0
+      },
+      {
+        "id": 8,
+        "name": "Grilled Chicken Salad",
+        "description": "Crisp greens with grilled chicken, tomatoes, cucumbers, and a balsamic vinaigrette.",
+        "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+        "price": 320,
+        "quantity": 0
+      },
+      {
+        "id": 9,
+        "name": "Minestrone Soup",
+        "description": "A hearty Italian soup made with vegetables, beans, and pasta.",
+        "image": "https://images.pexels.com/photos/4103745/pexels-photo-4103745.jpeg",
+        "price": 250,
+        "quantity": 0
+      },
+      {
+        "id": 10,
+        "name": "Fettuccine Alfredo",
+        "description": "A creamy pasta dish made with fettuccine noodles, Parmesan cheese, and butter.",
+        "image": "https://images.pexels.com/photos/2106173/pexels-photo-2106173.jpeg",
+        "price": 380,
+        "quantity": 0
+      }
+    ]
+  }
+  
