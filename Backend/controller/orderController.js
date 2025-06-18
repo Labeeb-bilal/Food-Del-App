@@ -1,6 +1,7 @@
 const FoodModel = require('../models/FoodModel');
 const orderModel = require('../models/orderModel');
 const UserModel = require('../models/UserModel');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // ✅ Correct Stripe init
 require('dotenv').config(); // ✅ Optional to move this to the top of your entry file
 
 const handlePlaceOrder = async (req, res) => {
