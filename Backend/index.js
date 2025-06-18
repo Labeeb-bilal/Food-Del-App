@@ -31,11 +31,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ Session setup with connect-mongo
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'yourSecretKey',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false, // Do not save empty sessions
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del',
+    mongoUrl: process.env.MONGO_URI,
     ttl: 60 * 60, // 1 hour session TTL
   }),
   cookie: {
