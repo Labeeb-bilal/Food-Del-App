@@ -14,14 +14,14 @@ const { AuthMiddleware } = require('./middleware/auth');
 const { connectDb } = require('./config/db');
 
 const app = express();
-const PORT = process.env.PORT || 8000; 
+const PORT = process.env.PORT; 
 
 // ✅ Connect to MongoDB
-connectDb(process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del');
+connectDb(process.env.MONGO_URI);
 
 // ✅ CORS must come before any other middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.ORIGIN,
   credentials: true, // Allow cookies to be sent
 }));
 

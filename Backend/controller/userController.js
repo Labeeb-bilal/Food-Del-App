@@ -8,6 +8,7 @@ const { createTokenForUser } = require('../Service/Auth');
 
 //handel signin
 const hanldeUserSignup = async (req, res) => {
+  console.log(req);
     try {
       const { name, email, password, cartData } = req.body;
       console.log(name, email, password);
@@ -17,9 +18,6 @@ const hanldeUserSignup = async (req, res) => {
       if (exists) {
         return res.status(400).json({ success: false, message: 'User already exists' });
       }
-
-
-  
       // Validate email format
       if (!validator.isEmail(email)) {
         return res.status(400).json({ success: false, message: 'Please enter a valid email address' });

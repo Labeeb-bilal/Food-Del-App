@@ -6,7 +6,7 @@ require('dotenv').config(); // ✅ Optional to move this to the top of your entr
 
 const handlePlaceOrder = async (req, res) => {
   const frontendUrl = 'http://localhost:5173';
-
+  
   try {
     const { items, amount, address } = req.body;
 

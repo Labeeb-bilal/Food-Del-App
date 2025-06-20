@@ -2,7 +2,7 @@ import './Footer.css'
 
 export default function Footer() {
     return (
-      <div>
+      <>
       <div className="footer-container">
       <div className="col-one">
           <h2>Tomato</h2>
@@ -32,7 +32,7 @@ export default function Footer() {
         <div className='copy-right'>
           Copyright © {new Date().getFullYear()}
         </div>
-      </div>
+      </>
     );
   }
   

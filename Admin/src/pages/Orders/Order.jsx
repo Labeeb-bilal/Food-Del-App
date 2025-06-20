@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Order() {
   const [orders, setOrders] = useState([]);
   const [token, setToken] = useState(null);
-  const API_URL = 'http://localhost:8000';
+  const API_URL = 'https://food-del-backend-c28b.onrender.com';
 
   const statusOptions = ['Food Processing', 'Out for Delivery', 'Delivered'];
 

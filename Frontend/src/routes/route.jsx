@@ -3,7 +3,7 @@ import Home from '../pages/Home/home';
 import Cart from '../pages/Cart/Cart';
 import Order from '../pages/PlaceOrder/PlaceOrder';
 import MainLayout from '../pages/Layout/MainLayout'
-import Verify from '../pages/Verify/verify';
+import Verify from '../pages/Verify/Verify';
 import MyOrders from '../pages/myOrders/myOrders';
 
 const router = createBrowserRouter([
@@ -16,7 +16,6 @@ const router = createBrowserRouter([
       { path: '/order', element: <Order /> },
       { path: '/verify', element: <Verify /> },
       { path: '/myorders', element: <MyOrders /> },
-
 
     ],
   },
