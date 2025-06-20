@@ -48,7 +48,7 @@ export default function ItemList({url})  {
           <td>{item.name}</td>
           <td className='des'>{item.description}</td>
           <td>
-            <img src={`http://localhost:8000${item.image}`} alt={item.name} width="60" />
+            <img src={`https://food-del-backend-c28b.onrender.com${item.image}`} alt={item.name} width="60" />
           </td>
           <td className='catagory'>{item.catagory}</td>
           <td>{item.price}</td>
