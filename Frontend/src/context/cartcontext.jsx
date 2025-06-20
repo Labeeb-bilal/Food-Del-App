@@ -28,7 +28,7 @@ export const StoreContextProvider = ({ children }) => {
     }
   }
 
-  const url = 'http://localhost:8000';
+  const url = 'https://food-del-backend-c28b.onrender.com';
  
   const handleDecrement = async (itemId) => {
     setCartData(prev => ({
