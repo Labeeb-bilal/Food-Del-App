@@ -4,7 +4,7 @@ import Cart from '../pages/Cart/Cart';
 import Order from '../pages/PlaceOrder/PlaceOrder';
 import MainLayout from '../pages/Layout/MainLayout'
 import Verify from '../pages/Verify/Verify';
-import MyOrders from '../pages/myOrders/myOrders';
+import MyOrders from '../pages/myOrders/MyOrders';
 
 const router = createBrowserRouter([
   {
