@@ -4,7 +4,7 @@ import MainLayout from "../pages/MainLayout/MainLayout";
 import AddItem from "../pages/AddItem/AddItem";
 import Orders from "../pages/Orders/Order";
 import ItemList from "../pages/ItemList/ItemList";
-const url = 'http://localhost:8000'
+const url = 'https://food-del-backend-8dxk.onrender.com'
 
 const router = createBrowserRouter([
     {
