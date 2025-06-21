@@ -21,7 +21,7 @@ connectDb(process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del');
 
 // ✅ CORS must come before any other middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://food-del-app-frontend-7k72.onrender.com', //frontend url
   credentials: true, // Allow cookies to be sent
 }));
 
