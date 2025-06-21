@@ -14,47 +14,58 @@ const { AuthMiddleware } = require('./middleware/auth');
 const { connectDb } = require('./config/db');
 
 const app = express();
-const PORT = process.env.PORT || 8000; 
+const PORT = process.env.PORT || 8000;
 
 // ✅ Connect to MongoDB
 connectDb(process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del');
 
-// ✅ CORS must come before any other middleware
+// ✅ CORS setup
+const allowedOrigins = [
+  'http://localhost:5173',
+  process.env.ORIGIN, // like 'https://food-del-app-frontend-7k72.onrender.com'
+];
+
 app.use(cors({
-  origin: 'https://food-del-app-frontend-7k72.onrender.com', //frontend url
-  credentials: true, // Allow cookies to be sent
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 
-// ✅ Body parser
+// ✅ Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Session setup with connect-mongo
+// ✅ Session setup
 app.use(session({
   secret: process.env.SESSION_SECRET || 'yourSecretKey',
   resave: false,
-  saveUninitialized: false, // Do not save empty sessions
+  saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del',
-    ttl: 60 * 60, // 1 hour session TTL
+    ttl: 60 * 60, // 1 hour
   }),
   cookie: {
-    secure: false, // Set to true only in production with HTTPS
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    sameSite: 'lax',
-  }
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  },
 }));
 
-// ✅ Static file serving (for uploads)
+// ✅ Static files (uploads)
 app.use('/uploads', express.static('uploads'));
 
-// ✅ Routes
+// ✅ API Routes
 app.use('/food', FoodRoutes);
 app.use('/user', Userrouter);
 app.use('/cart', AuthMiddleware, cartRoutes);
 app.use('/orders', AuthMiddleware, orderRoutes);
 
-//Global error handler (example: image upload error)
+// ✅ Global error handler
 app.use((err, req, res, next) => {
   if (err.message === 'Only image files are allowed!') {
     return res.status(400).json({ error: err.message });
@@ -63,7 +74,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-//Start server
+// ✅ Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server started at http://localhost:${PORT}`);
+  console.log(`🚀 Server started on port ${PORT}`);
 });
