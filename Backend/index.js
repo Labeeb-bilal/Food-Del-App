@@ -4,7 +4,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const dotenv = require('dotenv');
 
-dotenv.config(); here is my indexjs in git repo which is connected to render
+dotenv.config();
 
 const FoodRoutes = require('./routes/foodRoutes');
 const Userrouter = require('./routes/userRoutes');
