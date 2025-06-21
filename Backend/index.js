@@ -14,14 +14,14 @@ const { AuthMiddleware } = require('./middleware/auth');
 const { connectDb } = require('./config/db');
 
 const app = express();
-const PORT = process.env.PORT || 8000; 
+const PORT = process.env.PORT; 
 
 // ✅ Connect to MongoDB
-connectDb(process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del');
+connectDb(process.env.MONGO_URI);
 
 // ✅ CORS must come before any other middleware
 app.use(cors({
-  origin: 'https://food-del-app-frontend-7k72.onrender.com', //frontend url
+  origin: process.env.ORIGIN,
   credentials: true, // Allow cookies to be sent
 }));
 
@@ -31,11 +31,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ Session setup with connect-mongo
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'yourSecretKey',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false, // Do not save empty sessions
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI || 'mongodb://localhost:27017/Food-Del',
+    mongoUrl: process.env.MONGO_URI,
     ttl: 60 * 60, // 1 hour session TTL
   }),
   cookie: {
@@ -65,5 +65,5 @@ app.use((err, req, res, next) => {
 
 //Start server
 app.listen(PORT, () => {
-  console.log(🚀 Server started at http://localhost:${PORT});
+  console.log(`Server started at http://localhost:${PORT}`);
 });
