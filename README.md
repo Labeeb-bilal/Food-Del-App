@@ -32,20 +32,8 @@ npm install
 yarn install
 ```
 
-### 3. Create a `.env` File
 
-In the **root folder**, create a `.env` file and add the following keys:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-STRIPE_SECRET_KEY=your_stripe_secret_key
-JWT_SECRET=your_jwt_secret
-SESSION_SECRET=your_session_secret
-```
-
-> 🔒 These values are private. Contact the repository owner to obtain valid credentials.
-
-### 4. Run the App
+### 3. Run the App
 
 ```bash
 npm run dev
