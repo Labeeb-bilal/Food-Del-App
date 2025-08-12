@@ -1,7 +1,13 @@
 const FoodModel = require('../models/FoodModel');
+const fs = require('fs');
+const path = require('path');
+const pdf = require('html-pdf');
 const orderModel = require('../models/orderModel');
 const UserModel = require('../models/UserModel');
+const SendMail = require('../utils/emailSender/emailSender');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // ✅ Correct Stripe init
+const invoiceHTMLGenerator = require('../Service/generateInvoice') 
+
 require('dotenv').config(); // ✅ Optional to move this to the top of your entry file
 
 const handlePlaceOrder = async (req, res) => {
@@ -25,7 +31,6 @@ const handlePlaceOrder = async (req, res) => {
 
 
 
-
     // Stripe line items
     const line_items = items.map((item) => ({
       price_data: {
@@ -34,6 +39,7 @@ const handlePlaceOrder = async (req, res) => {
         unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity,
+
     }));
 
     // Add delivery charges
@@ -83,10 +89,22 @@ const verifyPayment = async (req, res) => {
       payment: true,
     });
 
+    let emailStatus = 'success';
+    try {
+      SendMail({ to: order.address.email, order });
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError);
+      emailStatus='failed';
+    }
+
     // Clear user cart
     await UserModel.findByIdAndUpdate(id, { cartData: {} });
 
-    return res.json({ success: true, message: 'Order verified and payment successful' });
+    return res.json({ success: true, message: 'Order verified and payment successful',  emailStatus,
+    ...(emailStatus === 'failed' && {
+      note: 'Payment is complete, but invoice email failed to send.',
+    }),});
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({ success: false, message: 'Error verifying payment' });
@@ -167,10 +185,47 @@ const handleStatusUpdate = async (req, res) => {
 };
 
 
+const handleDownloadInvoice = async (req, res) => {
+  const orderId = req.params.orderId;
+
+  const order = await orderModel.findById(orderId);
+  if (!order) return res.status(404).send('Invoice not found');
+
+  const pdfPath = path.join(__dirname, `../invoice_${orderId}.pdf`);
+
+  // if (fs.existsSync(pdfPath)) {
+  //   // If file already exists, download it
+  //   return res.download(pdfPath, `invoice_${orderId}.pdf`, (err) => {
+  //     if (!err) {
+  //       fs.unlinkSync(pdfPath); // Delete after sending
+  //     }
+  //   });
+  // }
+
+  const html = invoiceHTMLGenerator(order);
+
+  // Create PDF and then download
+  pdf.create(html).toFile(pdfPath, (err, result) => {
+    if (err) {
+      console.error('PDF generation error:', err);
+      return res.status(500).send('Could not generate invoice');
+    }
+
+    res.download(pdfPath, `invoice_${orderId}.pdf`, (err) => {
+      if (!err) {
+        // fs.unlinkSync(pdfPath); // Cleanup
+        console.log(err);
+      }
+    });
+  });
+};
+
+
 module.exports = {
   handlePlaceOrder,
   verifyPayment,
   handleFetchUserOrder,
   handleAllOrders,
   handleStatusUpdate,
+  handleDownloadInvoice,
 };

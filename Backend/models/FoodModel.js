@@ -20,8 +20,13 @@ const FoodSchema = new mongoose.Schema({
     catagory : {
         type : String,
         require : true
+    },
+    TagLine : {
+        type : String,
+        enum : ["Top dishes near you", "All Dishes"],
+        require : true,
     }
-},{timestamps : true})
+},{timestamps : true});
 
 const FoodModel = mongoose.models.Food || mongoose.model("Food",FoodSchema);
 

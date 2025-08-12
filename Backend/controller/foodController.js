@@ -4,8 +4,8 @@ const path = require('path');
 
 const handleAddFood = async (req, res) => {
     try {
-        const { name, description, price, catagory } = req.body;
-        console.log('catagory',catagory)
+        const { name, description, price, catagory, TagLine } = req.body;
+        console.log('Tagline',TagLine)
 
         const createFood = await FoodModel.create({
             name,
@@ -13,6 +13,7 @@ const handleAddFood = async (req, res) => {
             price,
             catagory,
             image: `/uploads/${req.file.filename}`, // ✅ Corrected
+            TagLine,
         });
         console.log(createFood);
         res.status(201).json({

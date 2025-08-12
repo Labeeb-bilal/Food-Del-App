@@ -1,5 +1,5 @@
 const JWT = require('jsonwebtoken');
-const secretkey = 'super@123'
+const secretkey = 'super@123'  // stires in env file
 
 
 const createTokenForUser = (user) => {

@@ -48,11 +48,13 @@ app.use(session({
 // ✅ Static file serving (for uploads)
 app.use('/uploads', express.static('uploads'));
 
+
 // ✅ Routes
 app.use('/food', FoodRoutes);
 app.use('/user', Userrouter);
 app.use('/cart', AuthMiddleware, cartRoutes);
 app.use('/orders', AuthMiddleware, orderRoutes);
+
 
 //Global error handler (example: image upload error)
 app.use((err, req, res, next) => {
@@ -65,5 +67,5 @@ app.use((err, req, res, next) => {
 
 //Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server started at http://localhost:${PORT}`);
+  console.log(`Server started at http://localhost:${PORT}`);
 });

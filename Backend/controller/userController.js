@@ -8,7 +8,6 @@ const { createTokenForUser } = require('../Service/Auth');
 
 //handel signin
 const hanldeUserSignup = async (req, res) => {
-  console.log(req);
     try {
       const { name, email, password, cartData } = req.body;
       console.log(name, email, password);
