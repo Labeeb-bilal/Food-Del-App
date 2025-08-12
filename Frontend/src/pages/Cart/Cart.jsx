@@ -43,6 +43,7 @@ export default function Cart() {
         </thead>
         <tbody>
           {dishes && dishes.map((item) => {
+            debugger
             if (cartData[item._id] > 0) {
               return (
                 <tr key={item._id}>

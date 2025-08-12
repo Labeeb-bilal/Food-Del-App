@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Menu.css'
-import menuData from '../../assets/menu.json'
+import menuData from '../../../public/menu.json'
 
 export default function Menu() {
 
@@ -20,7 +20,7 @@ export default function Menu() {
         {menu && menu.map((item, index) => (
             <div className='menu-item' key={index}>
             <img className='menu-img' src={item.image} alt={item.name} />
-            <span className="menu-name">{item.name}</span>
+            {/* <span className="menu-name">{item.name}</span> */}
             </div>
         ))}
       </div>

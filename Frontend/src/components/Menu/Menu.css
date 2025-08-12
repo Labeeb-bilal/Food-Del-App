@@ -39,7 +39,7 @@
     height: 150px;
     width: 150px;
     object-fit: cover; /* Maintain aspect ratio and crop if necessary */
-    border-radius: 50%; /* Make image round */
+    /* border-radius: 50%; */
   }
   
   .menu-name {

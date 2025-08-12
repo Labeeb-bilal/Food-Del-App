@@ -39,7 +39,6 @@ export default function Verify() {
         { 
           headers: { token },
         });
-        debugger
 
       if (response.data.success) {
         setStatus('success'); 

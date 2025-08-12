@@ -12,20 +12,38 @@
   
   .food-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 20px;
+    width: 100%;             
+    overflow-x: auto;      /* enables scrolling */
+    scroll-behavior: smooth; 
+    justify-content: start;    
+    gap: 20px;                 
+    padding: 20px;
+    /* scrollbar-color: #ccc transparent; */
+    /* margin-bottom: 10px; */
   }
+  
+  .food-list::-webkit-scrollbar {
+    display: none;
+  }
+/*   
+  .food-list::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .food-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+  } */
   
   .food-card {
     position: relative; /* Important! To allow absolute positioning inside */
-    width: 230px;
+    width: 270px;
     height: 380px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;
-    margin: 20px;
+    flex-shrink: 0;
   }
   
   .food-card:hover {
@@ -86,4 +104,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+
+  hr{
+    order: 0;
+    border-top: 1px solid white;
+    width: 100%;
   }

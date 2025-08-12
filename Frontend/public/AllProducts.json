@@ -1,0 +1,171 @@
+
+[
+  {
+    "_id": "food_001",
+    "name": "Margherita Pizza",
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop",
+    "rating": 4.5
+  },
+  {
+    "_id": "food_002",
+    "name": "Chicken Tikka Masala",
+    "price": 16.99,
+    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop",
+    "rating": 4.7
+  },
+  {
+    "_id": "food_003",
+    "name": "Caesar Salad",
+    "price": 11.99,
+    "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop",
+    "rating": 4.2
+  },
+  {
+    "_id": "food_004",
+    "name": "Beef Burger",
+    "price": 13.99,
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+    "rating": 4.4
+  },
+  {
+    "_id": "food_005",
+    "name": "Pad Thai",
+    "price": 15.49,
+    "image": "images/burger.avif",
+    "rating": 4.6
+  },
+  {
+    "_id": "food_006",
+    "name": "Chocolate Lava Cake",
+    "price": 8.99,
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop",
+    "rating": 4.8
+  },
+  {
+    "_id": "food_007",
+    "name": "Chicken Biryani",
+    "price": 17.99,
+    "image": "images/biryani.avif",
+    "rating": 4.5
+  },
+  {
+    "_id": "food_008",
+    "name": "Sushi Roll Combo",
+    "price": 22.99,
+    "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+    "rating": 4.7
+  },
+  {
+    "_id": "food_009",
+    "name": "Tacos Al Pastor",
+    "price": 12.99,
+    "image": "images/Shawarma.avif",
+    "rating": 4.3
+  },
+  {
+    "_id": "food_010",
+    "name": "Greek Salad",
+    "price": 10.99,
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop",
+    "rating": 4.1
+  },
+  {
+    "_id": "food_011",
+    "name": "Pepperoni Pizza",
+    "price": 16.99,
+    "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&h=300&fit=crop",
+    "rating": 4.6
+  },
+  {
+    "_id": "food_012",
+    "name": "Ramen Bowl",
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=400&h=300&fit=crop",
+    "rating": 4.4
+  },
+  {
+    "_id": "food_013",
+    "name": "Fish and Chips",
+    "price": 18.99,
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop",
+    "rating": 4.2
+  },
+  {
+    "_id": "food_014",
+    "name": "Chicken Wings",
+    "price": 11.99,
+    "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=400&h=300&fit=crop",
+    "rating": 4.5
+  },
+  {
+    "_id": "food_015",
+    "name": "Veggie Burger",
+    "price": 13.49,
+    "image": "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400&h=300&fit=crop",
+    "rating": 4.0
+  },
+  {
+    "_id": "food_016",
+    "name": "Pancakes",
+    "price": 9.99,
+    "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop",
+    "rating": 4.3
+  },
+  {
+    "_id": "food_017",
+    "name": "Grilled Salmon",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+    "rating": 4.6
+  },
+  {
+    "_id": "food_018",
+    "name": "Chicken Quesadilla",
+    "price": 10.99,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+    "rating": 4.4
+  },
+  {
+    "_id": "food_019",
+    "name": "Steak",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+    "rating": 4.7
+  },
+  {
+    "_id": "food_020",
+    "name": "Fried Rice",
+    "price": 12.99,
+    "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop",
+    "rating": 4.2
+  },
+  {
+    "_id": "food_021",
+    "name": "Cheesecake",
+    "price": 7.99,
+    "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=400&h=300&fit=crop",
+    "rating": 4.5
+  },
+  {
+    "_id": "food_022",
+    "name": "BBQ Ribs",
+    "price": 21.99,
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
+    "rating": 4.8
+  },
+  {
+    "_id": "food_024",
+    "name": "Falafel Wrap",
+    "price": 11.49,
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&h=300&fit=crop",
+    "rating": 4.1
+  },
+  {
+    "_id": "food_025",
+    "name": "Ice Cream Sundae",
+    "price": 6.99,
+    "image": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop",
+    "rating": 4.4
+  }
+]

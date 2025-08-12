@@ -28,7 +28,11 @@ export const StoreContextProvider = ({ children }) => {
     }
   }
 
-  const url = 'https://food-del-backend-8dxk.onrender.com';
+  const url = import.meta.env.VITE_API_URL;
+
+  useEffect(()=> {
+    console.log('url is',url)
+  })
  
   const handleDecrement = async (itemId) => {
     setCartData(prev => ({
@@ -47,7 +51,7 @@ export const StoreContextProvider = ({ children }) => {
   
 
   const handleIncrement = async (itemId) => {
-
+    console.log(itemId,'itemId');
      setCartData(prev => ({
         ...prev,
         [itemId]: (prev[itemId] || 0) + 1

@@ -1,25 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
-import './Food.css';
-import { StoreContext } from '../../context/cartcontext';
-import axios from 'axios'
+import React, { useContext } from 'react'
+import AllFoodList from '../../../public/AllProducts.json'
+import { StoreContext } from '../../context/cartcontext'
+import './AllFood.css'
 
-export default function Food() {
-  const { handleDecrement, handleIncrement, cartData, dishes,count,url } = useContext(StoreContext);
-  
+export default function AllFood() {
 
+  const {cartData,handleDecrement,handleIncrement,dishes,url} = useContext(StoreContext)
   return (
-    <div className='food-container'>
-      <h1 className='food-title'>Top dishes near you</h1>
-
-     { dishes?  <h3>Cart Items: {count} </h3> : '' }
-      <div className='food-list'>
-        { dishes? 
-        
-        ( dishes.map((item, index) => (
-           item.TagLine == 'Top dishes near you'? (
-          <div className='food-card' key={item.id || index}>
+    <div className='wrapper'>
+       <h1>This is All Food Page</h1>
+       <div className='food-List'> 
+       {
+        dishes.map((item,index)=>(
+          item.TagLine == 'All Dishes'? (
+        <div className='food-card-list' key={item.id || index}>
             <div className='food-image-container'>
-              <img src={`${url}${item.image}`} alt={item.name} className='food-image' />
+            <img src={`${url}${item.image}`} alt={item.name} className='food-image' />
               <div className='AddToCart'>
                 <i className="fa-solid fa-minus" onClick={() => handleDecrement(item._id)}></i>
                 <span className='quantity'>{cartData[item._id]? cartData[item._id] : 0}</span>
@@ -40,15 +36,8 @@ export default function Food() {
             </div>
           </div> ) : ''
         ))
-      ) : 'No Food Avaliable'  
-      }
-     
-      </div>
-      <hr style={{ 
-        border: '0.4px solid whitesomke', 
-      }} />
-
-
+       }
+       </div>
     </div>
-  );
+  )
 }

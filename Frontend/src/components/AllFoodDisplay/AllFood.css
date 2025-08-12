@@ -1,0 +1,20 @@
+.food-List{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+
+    /* height: auto; */
+}
+.food-card-list{
+    position: relative; /* Important! To allow absolute positioning inside */
+    width: 260px;
+    height: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    flex-shrink: 0;
+}
