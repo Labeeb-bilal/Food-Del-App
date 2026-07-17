@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Order() {
   const [orders, setOrders] = useState([]);
   const [token, setToken] = useState(null);
-  const API_URL = 'https://food-del-backend-c28b.onrender.com';
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const statusOptions = ['Food Processing', 'Out for Delivery', 'Delivered'];
 
@@ -48,7 +49,7 @@ export default function Order() {
 
 
       toast.success('Status updated');
-      fetchOrders(); // Refresh after update
+      fetchOrders(); // Refresh after status update
     } catch (error) {
       console.error('Failed to update status:', error);
       toast.error('Failed to update status.');

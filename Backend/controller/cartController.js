@@ -1,6 +1,10 @@
 const UserModel = require("../models/UserModel")
 
-//add to Cart
+
+
+
+
+//add to Cart //increment
 const addToCart = async (req,res) => {
   const id = req.user.id;
   const {itemId} = req.body;
@@ -23,7 +27,7 @@ const addToCart = async (req,res) => {
   
 }
 
-//remove to Cart
+//remove to Cart //decrement
 const removeFromCart = async (req,res) => {
   const userid = req.user.id;
   const {itemId} = req.body;
@@ -32,7 +36,7 @@ const removeFromCart = async (req,res) => {
     const cartData = userData.cartData;
 
    if (cartData[itemId] && cartData[itemId] > 1) {
-  // Decrement quantity
+    // Decrement quantity
     cartData[itemId] -= 1;
     } else {
       // Remove item completely if quantity is 1 or less
@@ -44,9 +48,56 @@ const removeFromCart = async (req,res) => {
 
   } catch (error) {
     console.log(error);
-    return res.json({success: true, message : error})
+    return res.json({success: false, message : error})
   }
 }
+//delete one food section in cartData ❌
+const RemoveFood = async (req, res) => {
+  try {
+    const userId = req.user?.id;
+    const { itemId } = req.body;
+
+    if (!userId) {
+      return res.status(401).json({ success: false, message: "Unauthorized: User ID missing" });
+    }
+
+    if (!itemId) {
+      return res.status(400).json({ success: false, message: "Item ID is required" });
+    }
+
+    const userData = await UserModel.findById(userId);
+    if (!userData) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    let cartData = userData.cartData || {};
+
+    if (!cartData[itemId]) {
+      return res.status(400).json({ success: false, message: "Item not found in cart" });
+    }
+
+    // your original logic
+    if (cartData[itemId] && cartData[itemId] >= 1) {
+      delete cartData[itemId];
+      await UserModel.findByIdAndUpdate(userId, { cartData });
+
+      return res.status(200).json({
+        success: true,
+        message: "Item removed from Cart",
+      });
+    } else {
+       return res.json({
+        success: false, message: "Food quantity is 0"
+       })
+    }
+
+
+  } catch (error) {
+    console.error("Error in RemoveFood:", error.message);
+    return res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
 
 //get to Cart
 const getAllCart = async (req, res) => {
@@ -75,4 +126,5 @@ module.exports = {
     addToCart,
     removeFromCart,
     getAllCart,
+    RemoveFood,
 }

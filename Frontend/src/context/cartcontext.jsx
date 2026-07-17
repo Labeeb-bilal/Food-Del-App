@@ -4,9 +4,17 @@ import axios from 'axios'
 export const StoreContext = createContext(null);
 
 export const StoreContextProvider = ({ children }) => {
+  
   const [cartData, setCartData] = useState([]);
   const [dishes, setDishes] = useState([]);
-  const [count, setCount] = useState(0);  // Added count state
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    setCount(Object.values(cartData).reduce((sum, qty) => sum + qty, 0));
+  }, [cartData]);
+  
+  console.log(count);
+  
   const [token,settoken] = useState();
 
   useEffect(() => {
@@ -66,24 +74,37 @@ export const StoreContextProvider = ({ children }) => {
     }
   };
   
-  const handleRemoveItem = (id) => {
-    //removing by filtering by id (softdelete)
-    const updatedCartData = cartData.filter((item) => {
-      return item.id !== id;
-    })
-    
+  const handleRemoveItem = async (id) => {
+
+    const updatedCartData = Object.fromEntries(
+      Object.entries(cartData).filter(([key]) => key!== id ))    
+      setCartData(updatedCartData);
+
     //update quantity upon remving 
-    const updateDishes = dishes.map((item)=>{
-      return item.id === id ? {...item, quantity : 0} : item
-    })
-    setDishes(updateDishes);
+    // debugger
+    // const updateDishes = dishes.map((item)=>{
+    //   return item.id === id ? {...item, quantity : 0} : item
+    // })
+    // setDishes(updateDishes);
+    // console.log('updateDishes',updateDishes)
 
     //quantity minus in total cart count
     const removedItems = dishes.find((item)=> item.id == id);
     if (removedItems) {
       setCount(count - removedItems.quantity);
+    }      
+    try {
+      if (token) {
+        const response = await axios.patch(`${url}/cart/removeFood`, {itemId :id },{
+        headers : {token}
+         })
+         console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }
+
+   }
 
   const handlegetCartData = async (token) => {
     if (token) {
@@ -91,7 +112,7 @@ export const StoreContextProvider = ({ children }) => {
         headers : {token}
       });
     }
-    setCartData(response.data.cartData)
+    setCartData(response.data.cartData);
     console.log('cart',response.data.cartData);
   }
 

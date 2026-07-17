@@ -53,6 +53,8 @@
 .product-Cat-Price-field{
  display: flex;
  gap: 20px;
+ justify-content: start;
+ align-items: center;
 }
 .option-box{ 
  display: flex;
@@ -64,6 +66,9 @@
  padding: 10px 20px;
  display: flex;
  justify-content: start;
+}
+.TagLine{
+ width: 220px;
 }
 .add-btn{
     width: 100px;

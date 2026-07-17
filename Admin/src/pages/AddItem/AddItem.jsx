@@ -6,13 +6,15 @@ import {toast} from 'react-toastify';
 import { useRef } from 'react';
 
 export default function AddItem({url}) {
+  console.log('url',url)
 
     const [productData, setproductData] = useState({
         image : '',
         name : '',
         des : '',
-        Category : 'Pure veg',
+        Category : '',
         Price : '0',
+        TagLine : '',
     });
     const fileinputref = useRef()
 
@@ -20,6 +22,7 @@ export default function AddItem({url}) {
  
     const hanldeChange = (e) => {
      const {name,value,files} = e.target;
+    //  debugger
       setproductData({
         ...productData,
         [name] : files? files[0] : value,
@@ -27,7 +30,8 @@ export default function AddItem({url}) {
     }
 
     useEffect(()=>{
-        // console.log(productData);
+        console.log(productData);
+
     });
 
     const handleresetForm = () => {
@@ -39,6 +43,7 @@ export default function AddItem({url}) {
            des: '',
            Category: '',
            Price: '0',
+           TagLine : '',
          });
     }
 
@@ -57,17 +62,23 @@ export default function AddItem({url}) {
        formData.append('description',productData.des);
        formData.append('catagory',productData.Category);
        formData.append('price',productData.Price);
+       formData.append('TagLine',productData.TagLine);
 
+           
        try {
-        console.log(formData)
+        console.log(formData);
+
          const response = await axios.post(`${url}/food/Add`,formData);
-         setproductData({})
+        //  setproductData({})
          toast.success('Food Successfully Added');
          handleresetForm();
          
        } catch (error) {
-         console.log(error);
-         toast.success(response.data);
+        if (error.message.includes('Network Error') || error.code === 'ERR_NETWORK') {
+          toast.error('Backend server is not running.');
+        } else {
+          toast.error(error.response?.data?.message || 'Something went wrong.');
+        }
        }
 
     }
@@ -101,6 +112,14 @@ export default function AddItem({url}) {
                  <select className='option-box-select'  onChange={hanldeChange} name='Category' >
                     <option value='Pure veg'>Pure Veg</option>
                     <option value='Non veg'>Non Veg</option>
+                 </select>
+                </div>
+
+                <div className='option-box'>
+                  <p>Product Tagline</p>
+                 <select className='option-box-select TagLine'  onChange={hanldeChange} name='TagLine' >
+                    <option value='All Dishes'>All Dishes</option>
+                    <option value='Top dishes near you'>Top dishes near you</option>
                  </select>
                 </div>
 

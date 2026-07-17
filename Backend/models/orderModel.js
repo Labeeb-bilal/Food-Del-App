@@ -25,7 +25,7 @@ const orderSchema  = new mongoose.Schema({
    },
    date: {
       type: Date,
-      default: Date.now, // ✅ Automatically adds current server date/time
+      default: Date.now,
       required: true,
     },    
    payment : {

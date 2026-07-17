@@ -12,7 +12,7 @@ const handleAddFood = async (req, res) => {
             description,
             price,
             catagory,
-            image: `/uploads/${req.file.filename}`, // ✅ Corrected
+            image: `/uploads/${req.file.filename}`,
             TagLine,
         });
         console.log(createFood);

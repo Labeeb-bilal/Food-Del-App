@@ -1,5 +1,5 @@
 const JWT = require('jsonwebtoken');
-const secretkey = 'super@123'  // stires in env file
+const secretkey = 's1uper@123'  // stires in env file
 
 
 const createTokenForUser = (user) => {
@@ -8,12 +8,13 @@ const createTokenForUser = (user) => {
      name : user.name,
      email : user.email,
    }
-   const token = JWT.sign(Payload,secretkey);
+   console.log('JWT_SECRET',process.env.JWT_SECRET)
+   const token = JWT.sign(Payload,process.env.JWT_SECRET);
    return token;
 }
 
 const verifyToken = (token) => {
-  const Payload = JWT.verify(token,secretkey);
+  const Payload = JWT.verify(token,process.env.JWT_SECRET);
   return Payload;
 }
 

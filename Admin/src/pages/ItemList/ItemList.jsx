@@ -13,7 +13,10 @@ export default function ItemList({url})  {
   const fetchData = async () => {
     const response = await axios.get(`${url}/food/getAllFoodList`);
     setList(response.data.data);
+    console.log('data is',response.data.data);
   }
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   const handleDeleteById = async (id) => {
     try {
@@ -48,7 +51,7 @@ export default function ItemList({url})  {
           <td>{item.name}</td>
           <td className='des'>{item.description}</td>
           <td>
-            <img src={`https://food-del-backend-c28b.onrender.com${item.image}`} alt={item.name} width="60" />
+            <img src={`${API_URL}${item.image}`} alt={item.name} width="60" />
           </td>
           <td className='catagory'>{item.catagory}</td>
           <td>{item.price}</td>

@@ -14,11 +14,11 @@ export default function Verify() {
   const navigate = useNavigate();
 
   // Prevent direct access without session
-  useEffect(() => {
-    if (!success || !orderId) {
-      navigate('/myorders');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!success || !orderId) {
+  //     navigate('/myorders');
+  //   }
+  // }, []);
 
   // Handle success/failure status
   useEffect(() => {

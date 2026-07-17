@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './CartTotal.css'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/cartcontext'
 
 export default function CartTotal({useSubmit, handleSubmit}) {

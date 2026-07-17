@@ -5,10 +5,9 @@ const pdf = require('html-pdf');
 const orderModel = require('../models/orderModel');
 const UserModel = require('../models/UserModel');
 const SendMail = require('../utils/emailSender/emailSender');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // ✅ Correct Stripe init
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
 const invoiceHTMLGenerator = require('../Service/generateInvoice') 
-
-require('dotenv').config(); // ✅ Optional to move this to the top of your entry file
+require('dotenv').config(); 
 
 const handlePlaceOrder = async (req, res) => {
   const frontendUrl = 'http://localhost:5173';
@@ -20,7 +19,6 @@ const handlePlaceOrder = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Cart is empty' });
      }
 
-    // Temporarily save the order draft
     const draftOrder = await orderModel.create({
       userId: req.user.id,
       items,
@@ -31,7 +29,6 @@ const handlePlaceOrder = async (req, res) => {
 
 
 
-    // Stripe line items
     const line_items = items.map((item) => ({
       price_data: {
         currency: 'inr',
@@ -42,8 +39,7 @@ const handlePlaceOrder = async (req, res) => {
 
     }));
 
-    // Add delivery charges
-    line_items.push({
+    line_items.push({ //del charges
       price_data: {
         currency: 'inr',
         product_data: { name: 'Delivery Charges' },
@@ -52,7 +48,6 @@ const handlePlaceOrder = async (req, res) => {
       quantity: 1,
     });
 
-  // Now pass only the order ID in Stripe metadata
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
     line_items,
@@ -77,14 +72,12 @@ const verifyPayment = async (req, res) => {
   const { id } = req.user;
 
   try {
-    // Optional: you can double-check if the order exists
     const order = await orderModel.findById(orderId);
 
     if (!order) {
       return res.status(404).json({ success: false, message: 'Order not found' });
     }
 
-    // Update order payment status
     await orderModel.findByIdAndUpdate(orderId, {
       payment: true,
     });
@@ -97,7 +90,6 @@ const verifyPayment = async (req, res) => {
       emailStatus='failed';
     }
 
-    // Clear user cart
     await UserModel.findByIdAndUpdate(id, { cartData: {} });
 
     return res.json({ success: true, message: 'Order verified and payment successful',  emailStatus,
@@ -152,24 +144,20 @@ const handleStatusUpdate = async (req, res) => {
   try {
     const { orderId, newStatus } = req.body;
 
-    // Validate input
     if (!orderId || !newStatus) {
       return res.status(400).json({ success: false, message: 'Order ID and new status are required.' });
     }
 
-    // Update the order status
     const updatedOrder = await orderModel.findByIdAndUpdate(
       orderId,
       { status: newStatus },
-      { new: true } // Return the updated document
+      { new: true } 
     );
 
-    // If order not found
     if (!updatedOrder) {
       return res.status(404).json({ success: false, message: 'Order not found.' });
     }
 
-    // Success
     return res.status(200).json({
       success: true,
       message: 'Order status updated successfully.',
@@ -204,7 +192,6 @@ const handleDownloadInvoice = async (req, res) => {
 
   const html = invoiceHTMLGenerator(order);
 
-  // Create PDF and then download
   pdf.create(html).toFile(pdfPath, (err, result) => {
     if (err) {
       console.error('PDF generation error:', err);
